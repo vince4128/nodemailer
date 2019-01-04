@@ -2,6 +2,7 @@ const   nodemailer  = require('nodemailer')
         express     = require('express')
         app         = express()
         bodyParser  = require('body-parser');
+require('dotenv').config();
 
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -37,3 +38,9 @@ app.post('/contact', function(req,res){
         }
     });
 });
+
+//Server setup
+const port = process.env.PORT || 3005;
+const server = http.createServer(app);
+
+server.listen(port);
